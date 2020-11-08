@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "d51be03f-8554-4896-8bba-f4b405f747b4",
+		"name": "Reto auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"username\": \"davidgfonseca\",\r\n        \"password\": \"test\",\r\n        \"role\": \"Admin\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"username\": \"davidgfonseca\",\r\n        \"password\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get productos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhdml0MzAxMSIsInBhc3N3b3JkIjoidGVzdDIiLCJpYXQiOjE2MDQ3OTk3MDgsImV4cCI6MTYwNDgwMzMwOH0.fOO2zINNwQpUilEuqPApe70TEAJR0AG7lkJdW1FCESk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put productos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhdmlkZ2ZvbnNlY2EiLCJwYXNzd29yZCI6InRlc3QiLCJpYXQiOjE2MDQ3OTcwNDgsImV4cCI6MTYwNDgwMDY0OH0.sr6YtPUdWrb_lBJMj6_jWcTsi2nZf8mWcbyiTsrL18w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nombre\": \"Prod 1 (Modificado)\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/productos/1234",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"productos",
+						"1234"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post productos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhdmlkZ2ZvbnNlY2EiLCJwYXNzd29yZCI6InRlc3QiLCJpYXQiOjE2MDQ3OTcwNDgsImV4cCI6MTYwNDgwMDY0OH0.sr6YtPUdWrb_lBJMj6_jWcTsi2nZf8mWcbyiTsrL18w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\":\"Prod 2\",\r\n    \"nit\":12345\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3031/productos",
+					"host": [
+						"localhost"
+					],
+					"port": "3031",
+					"path": [
+						"productos"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
